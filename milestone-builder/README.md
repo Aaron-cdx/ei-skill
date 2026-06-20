@@ -40,50 +40,29 @@ For any project input (PRD, spec, task breakdown), the skill outputs:
 
 ## Installation
 
-### Prerequisites
+**Prerequisites**: [Claude Code](https://docs.anthropic.com/en/docs/claude-code) + Git
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
-- Git (for cloning)
-
-### Option 1: Clone to Project Skills (Recommended)
-
-Install as a project-specific skill that follows your project:
+### One-Click Install
 
 ```bash
-# From your project root
-mkdir -p .claude/skills
-git clone https://github.com/your-org/milestone-builder.git .claude/skills/milestone-builder
+# Install to current project (recommended)
+git clone --depth 1 https://github.com/Aaron-cdx/ei-skill.git /tmp/ei-skill && mkdir -p .claude/skills && cp -r /tmp/ei-skill/milestone-builder .claude/skills/ && rm -rf /tmp/ei-skill
 ```
-
-Then add to `.gitignore` if you don't want to commit it:
-```bash
-echo ".claude/skills/milestone-builder/" >> .gitignore
-```
-
-### Option 2: Clone to User Skills (Available Across All Projects)
 
 ```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/your-org/milestone-builder.git ~/.claude/skills/milestone-builder
+# Install globally (available across all projects)
+git clone --depth 1 https://github.com/Aaron-cdx/ei-skill.git /tmp/ei-skill && mkdir -p ~/.claude/skills && cp -r /tmp/ei-skill/milestone-builder ~/.claude/skills/ && rm -rf /tmp/ei-skill
 ```
 
-### Option 3: Manual Copy
+### PowerShell (Windows)
 
-Download the repository and copy the `milestone-builder/` folder to:
-- Project-specific: `<your-project>/.claude/skills/milestone-builder/`
-- User-global: `~/.claude/skills/milestone-builder/`
-
-### Verify Installation
-
-In Claude Code, run:
-```
-/ milestone-builder
+```powershell
+git clone --depth 1 https://github.com/Aaron-cdx/ei-skill.git $env:TEMP/ei-skill; mkdir -p .claude/skills; cp -r $env:TEMP/ei-skill/milestone-builder .claude/skills/; rm -r -fo $env:TEMP/ei-skill
 ```
 
-If the skill is recognized, you're ready to go. You can also verify with:
-```
-!ls .claude/skills/milestone-builder/
-```
+### Verify
+
+In Claude Code, run `/milestone-builder` — if the skill is recognized, you're ready.
 
 ## Usage
 
